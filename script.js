@@ -2,7 +2,8 @@
 //  <span class="stars"></span>
 function createCards(animal){
   const card = document.createElement('div')
-                document.querySelector('#mainContainer').append(card)
+  console.log( document.querySelector('#cardContainer'));             
+  document.querySelector('#cardContainer').append(card)
                 card.innerHTML = `
                 <div class="container">          
             <div class="card ">
@@ -26,6 +27,7 @@ function createCards(animal){
                `
                
      
+
       let cardFace = document.getElementById(`faceElement-${animal.id}`);
       console.log(cardFace);
 
