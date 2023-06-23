@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=IBM+Plex+Serif:wght@300&family=Kalam:wght@300&family=Satisfy&display=swap');
 #mainContainer{
     width: 80%;
     display: flex;
@@ -14,4 +15,38 @@
 .container{
     margin: 10px;
     padding: 40px 40px;
+}
+.votes{
+    color: white;
+    font-family: 'Satisfy', cursive;
+    padding: 10px;
+    font-size: 2rem;
+    margin: 10px;
+
+
+}
+.cardName{
+    font-family: 'Satisfy', cursive;
+    color: white;
+    font-size: 2.9rem;
+}
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    margin:5px;
+}
+.cardHeader .btnReset{
+    height: auto;
+    padding: 3px 10px;
+    margin: auto 10px;
+    font-size: 1.5rem;
+    background-color: white;
+    color: magenta;
+    border-radius: 10px;
+    border: 1px solid magenta;
+    background-color: transparent;
+    font-family: 'Satisfy', cursive;
+
+
+    
 }
