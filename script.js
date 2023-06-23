@@ -9,7 +9,7 @@ function createCards(animal){
               <div class="face face1  ">
                 <div class="content">
                 <div class=cardHeader> 
-                  <h2 id='${animal.id}' class="votes">Votes: ${animal.votes}</h2>
+                  <h2 id='${animal.id}' class="votes"><i id="icon" class="fa fa-heart" style="font-size:40px;"></i> ${animal.votes}</h2>
                   <button class="btnReset" id="btnReset-${animal.id}">Reset &#128546;</button>
                 </div>
                
@@ -25,6 +25,7 @@ function createCards(animal){
           </div>
                `
                
+     
       let cardFace = document.getElementById(`faceElement-${animal.id}`);
       console.log(cardFace);
 
@@ -37,7 +38,14 @@ function createCards(animal){
 
       let resetButton = document.getElementById(`btnReset-${animal.id}`)
       resetButton.addEventListener('click',()=> resetVotesValue(animal))
-    voteCounter(animal)
+
+      const icon = document.getElementById('icon');
+
+      icon.addEventListener('click', () => {
+        icon.classList.add('icon-click');
+      });
+
+      voteCounter(animal)
     return card
 }
 
