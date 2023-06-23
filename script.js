@@ -10,12 +10,9 @@ function createCards(animal){
               <div class="face face1  ">
                 <div class="content">
                 <div class=cardHeader> 
-                  <h2 id='${animal.id}' class="votes"><i id="icon" class="fa fa-heart" style="font-size:40px;"></i> ${animal.votes}</h2>
+                  <h2 id='${animal.id}' class="votes"><i id="icon-${animal.id}" class="fa fa-heart" style="font-size:40px;"></i> ${animal.votes}</h2>
                   <button class="btnReset" id="btnReset-${animal.id}">Reset &#128546;</button>
                 </div>
-               
-                  
-                 
                   <img src="${animal.image}" class="cSharp"></img>
                 </div>
               </div>
@@ -25,10 +22,11 @@ function createCards(animal){
             </div>
           </div>
                `
-               
-     
 
       let cardFace = document.getElementById(`faceElement-${animal.id}`);
+      let resetButton = document.getElementById(`btnReset-${animal.id}`)
+      const icon = document.getElementById(`icon-${animal.id}`);
+
       console.log(cardFace);
 
       card.addEventListener('click', (e)=>{
@@ -37,18 +35,13 @@ function createCards(animal){
       card.addEventListener('mouseleave', (e)=>{
         cardFace.style.height = '100%'
       })      
-
-      let resetButton = document.getElementById(`btnReset-${animal.id}`)
-      resetButton.addEventListener('click',()=> resetVotesValue(animal))
-
-      const icon = document.getElementById('icon');
-
       icon.addEventListener('click', () => {
         icon.classList.add('icon-click');
       });
-
+      
+      resetButton.addEventListener('click',()=> resetVotesValue(animal))
       voteCounter(animal)
-    return card
+      return card
 }
 
 function fetchAnimalData(){

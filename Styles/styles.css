@@ -90,9 +90,11 @@ fieldset{
     background-color: magenta;
     border: 1px white solid;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: white;
     border-radius: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 legend{
     color: white;
@@ -105,5 +107,4 @@ legend{
 em{
     font-style: normal;
     color: magenta;
-    
 }
