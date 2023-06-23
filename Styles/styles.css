@@ -2,3 +2,9 @@
     width: 80%;
     display: flex;
 }
+#cardName{
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+
+}

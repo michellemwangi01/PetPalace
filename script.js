@@ -9,94 +9,72 @@ function createCards(animal){
                 <div class="content">
                   <span class="stars"></span>
                   
-                  <h2 class="votes">${animal.votes}</h2>
+                  <h2 id='${animal.id}' class="votes">${animal.votes}</h2>
                   <i class="fa-solid fa-heart fa-lg" style="color: #1f2123;"></i>
                   <img src="${animal.image}" class="cSharp"></img>
                 </div>
               </div>
-              <div class="face face2">
-                <h2>${animal.name}</h2>
+              <div class="face face2" id="faceElement">
+                <h2 class='cardName'>${animal.name}</h2>
               </div>
             </div>
           </div>
                `
-    return card
+               
+    //   let cardFace = document.getElementById('faceElement');
+    //   console.log(cardFace);
 
+    //   card.addEventListener('click', ()=>{
+    //     cardFace.style.height = '13%';
+    //   })  
+    //   card.addEventListener('mouseleave', ()=>{
+    //     cardFace.style.height = '100%'
+    // })      
+    voteCounter(animal)
+    return card
 }
 
 
 function dataCollector(){
-    fetch("http://localhost:3000/characters")
-    .then((res)=> res.json())
-    .then(animals=> animals.forEach(animal => {
-      createCards(animal)
-      
-      let cardFaces = document.getElementsByClassName('face');
-      //console.log(cardFaces);
-      
-      for(let cardFace of cardFaces){
-        cardFace.addEventListener('click', (e)=>{
-          event.target.style.height = '13%';
-        })
-      }
-
-      let voteCountCard =  document.getElementsByClassName('votes')
-      //console.log(voteCountCard);
-      for(let voteCard of voteCountCard){
-        let count = voteCard.textContent;
-        countNum = parseInt(count)
-        voteCard.addEventListener('click', ()=>{
-          voteCard.textContent = `Votes: ${animal.votes ++}`
-          console.log(count);
-
-        })
-      }
-
-    }));
-  
-    ;
-    
-
-
-
-
-    
-    // cardFace.addEventListener("click", ()=>)
-
-
+  fetch("http://localhost:3000/characters")
+  .then((res)=> res.json())
+  .then(animals=> animals.forEach(animal => {
+    createCards(animal)
+  }));
 }
+
+function updateVotesValue(animal){
+  fetch(`http://localhost:3000/characters/${animal.id}`, {
+  method: 'PATCH',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(
+    {
+      "votes": animal.votes+1
+    }
+  )
+  }) 
+  .then(res => {
+    if(res.ok){
+      console.log("SUCCESS")
+    }else{
+      console.log("UNSUCESSFULL")
+    }
+    return res.json()
+  })
+  .then((data)=> console.log(data))
+
+  
+}
+
 dataCollector();
 
-function showAnimalDetails(cardFace){
-   cardFace.classList.add()
+function voteCounter(animal){
+  let animalid = animal.id;
+  console.log(animalid);
+  let vote = document.getElementById(animalid)
+   console.log((vote));
+   vote.addEventListener('click', ()=> {
+    updateVotesValue(animal)})
 }
-
-function addVotes(){
- 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// card.innerHTML = `
-//                 <a>${animal.name}</a>
-//                 <div id="animalDetails">
-//                 </div>
-//                 <img src="${animal.image}" alt="">
-//                 <p> <i class='fas fa-heart' style='color: red'></i>Votes: ${animal.votes}</p>
-//                `
