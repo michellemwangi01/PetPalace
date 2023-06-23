@@ -14,28 +14,27 @@ function createCards(animal){
                   <img src="${animal.image}" class="cSharp"></img>
                 </div>
               </div>
-              <div class="face face2" id="faceElement">
+              <div class="face face2" id="faceElement-${animal.id}">
                 <h2 class='cardName'>${animal.name}</h2>
               </div>
             </div>
           </div>
                `
                
-    //   let cardFace = document.getElementById('faceElement');
-    //   console.log(cardFace);
+      let cardFace = document.getElementById(`faceElement-${animal.id}`);
+      console.log(cardFace);
 
-    //   card.addEventListener('click', ()=>{
-    //     cardFace.style.height = '13%';
-    //   })  
-    //   card.addEventListener('mouseleave', ()=>{
-    //     cardFace.style.height = '100%'
-    // })      
+      card.addEventListener('click', (e)=>{
+        cardFace.style.height = '13%';
+      })  
+      card.addEventListener('mouseleave', (e)=>{
+        cardFace.style.height = '100%'
+      })      
     voteCounter(animal)
     return card
 }
 
-
-function dataCollector(){
+function fetchAnimalData(){
   fetch("http://localhost:3000/characters")
   .then((res)=> res.json())
   .then(animals=> animals.forEach(animal => {
@@ -68,8 +67,6 @@ function updateVotesValue(animal){
   
 }
 
-dataCollector();
-
 function voteCounter(animal){
   let animalid = animal.id;
   console.log(animalid);
@@ -78,3 +75,5 @@ function voteCounter(animal){
    vote.addEventListener('click', ()=> {
     updateVotesValue(animal)})
 }
+
+fetchAnimalData();

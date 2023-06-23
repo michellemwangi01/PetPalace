@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Mr. Cute",
       "image": "https://thumbs.gfycat.com/EquatorialIckyCat-max-1mb.gif",
-      "votes": 5
+      "votes": 11
     },
     {
       "id": 2,
       "name": "Mx. Monkey",
       "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
-      "votes": 5
+      "votes": 6
     },
     {
       "id": 3,
@@ -22,13 +22,13 @@
       "id": 4,
       "name": "Dr. Lion",
       "image": "http://bestanimations.com/Animals/Mammals/Cats/Lions/animated-lion-gif-11.gif",
-      "votes": 0
+      "votes": 1
     },
     {
       "id": 5,
       "name": "Mme. Panda",
       "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
-      "votes": 4
+      "votes": 5
     }
   ]
 }
