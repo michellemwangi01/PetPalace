@@ -93,10 +93,12 @@ fieldset{
     font-size: 1.2rem;
     color: white;
     border-radius: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: "Righteous", cursive;
+    
 
 }
 legend{
+    padding:15px;
     color: white;
     font-size: 1.5rem;
 }

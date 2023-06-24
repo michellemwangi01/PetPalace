@@ -4,31 +4,55 @@
       "id": 1,
       "name": "Mr. Cute",
       "image": "https://thumbs.gfycat.com/EquatorialIckyCat-max-1mb.gif",
-      "votes": 24
+      "votes": 29
     },
     {
       "id": 2,
       "name": "Mx. Monkey",
       "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
-      "votes": 6
+      "votes": 9
     },
     {
       "id": 3,
       "name": "Ms. Zebra",
       "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
-      "votes": 5
+      "votes": 7
     },
     {
       "id": 4,
       "name": "Dr. Lion",
       "image": "http://bestanimations.com/Animals/Mammals/Cats/Lions/animated-lion-gif-11.gif",
-      "votes": 2
+      "votes": 5
     },
     {
       "id": 5,
       "name": "Mme. Panda",
       "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
-      "votes": 1
+      "votes": 3
+    },
+    {
+      "name": "Mx. Squirrel",
+      "image": "https://shorturl.at/foAMQ",
+      "votes": 2,
+      "id": 6
+    },
+    {
+      "name": "Elephant",
+      "image": "https://shorturl.at/lpFHS",
+      "votes": 3,
+      "id": 8
+    },
+    {
+      "name": "Mr.Puppy",
+      "image": "https://shorturl.at/agpR1",
+      "votes": "41",
+      "id": 9
+    },
+    {
+      "name": "Ms. Attitude",
+      "image": "https://shorturl.at/CLSZ8",
+      "votes": "145",
+      "id": 10
     }
   ]
 }

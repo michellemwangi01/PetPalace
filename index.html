@@ -8,43 +8,38 @@
     <link rel="stylesheet" href="./Styles/styles.css">
     <link rel="icon" type="image/png" href="./Image/favicon.ico">
     <script src="./script.js"></script>
-    <title>Flatacuties</title>
+    <title>Pet Palace</title>
 </head>
 <body>
-    
-   
     <div id="mainContainer">   
         <h1 id="heading"> THE PET <em>PALACE</em></h1>     
-        <form action="">
+        <form id="addAPet">
             <fieldset id="IdentityKinInfo" class="row g-3 scheduler-border">
                 <legend class="scheduler-border"> Add A Pet</legend>
         
                 <div class="">
                     <span class="clientdeets" id="">Pet Name</span>
-                    <input value = '' type="text" name="kinFullNames"class="myformControl" aria-label="Sizing example input" aria-describedby="">
+                    <input id="petNameInput" value = '' type="text" name="kinFullNames"class="myformControl" aria-label="Sizing example input" aria-describedby="">
                     <span><p class='errorMessages'></p></span>
-                </div>
+                </div> 
                 <div class="">
                     <span class="clientdeets" id="">Vote</span>
-                    <input value = '' type="email" name="kinRelationship"class="myformControl" aria-label="Sizing example input" aria-describedby="">
+                    <input id="petVotesinput" min="1" max="" value = '' type="number" name="kinRelationship"class="myformControl" aria-label="Sizing example input" aria-describedby="">
                     <span><p class='errorMessages'></p></span>
                 </div>
                 
                 <div class="">
                     <span class="clientdeets" id="">Image URL</span>
-                    <input value = '' type="text" name="kinMobile" class="myformControl" aria-label="Sizing example input" aria-describedby="">
-                    <span><p class='errorMessages'></p></span>
+                    <input id="imgURLInput" value = '' type="text" name="kinMobile" class="myformControl" aria-label="Sizing example input" aria-describedby="">
+                    <span><p class='errorMe ssages'></p></span>
                 </div>
             
                 <button id="submit" type="submit">Submit</button>
-        </fieldset>
-        
+            </fieldset>
         </form>
         <div id="cardContainer">
             
         </div>
     </div>
-
-   
 </body>
 </html>

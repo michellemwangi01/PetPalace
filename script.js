@@ -1,8 +1,33 @@
- // <i class="fa-solid fa-heart fa-lg" style="color: #1f2123;"></i>
-//  <span class="stars"></span>
+document.addEventListener('DOMContentLoaded', function() {
+  //const myForm = document.getElementById('addAPet')
+  const submitPetBtn = document.getElementById('submit')
+  console.log(submitPetBtn);
+  submitPetBtn.addEventListener('click', (e)=>{
+    e.preventDefault();
+  //petNameInput petVotesinput imgURLInput
+    let petNameInput = document.getElementById('petNameInput').value
+    let petVotesinput = document.getElementById('petVotesinput').value
+    let imgURLInput = document.getElementById('imgURLInput').value
+
+    let newPet = {
+      name: petNameInput,
+      image: imgURLInput,
+      votes: petVotesinput
+    }
+
+    addAPet(newPet)
+
+
+
+    
+    console.log("I was submitted!");
+  })
+});
+
+
 function createCards(animal){
   const card = document.createElement('div')
-  console.log( document.querySelector('#cardContainer'));             
+  //console.log( document.querySelector('#cardContainer'));             
   document.querySelector('#cardContainer').append(card)
                 card.innerHTML = `
                 <div class="container">          
@@ -27,19 +52,23 @@ function createCards(animal){
       let resetButton = document.getElementById(`btnReset-${animal.id}`)
       const icon = document.getElementById(`icon-${animal.id}`);
 
-      console.log(cardFace);
+      //console.log(cardFace);
 
-      card.addEventListener('click', (e)=>{
+      card.addEventListener('click', ()=>{
         cardFace.style.height = '13%';
       })  
-      card.addEventListener('mouseleave', (e)=>{
+      card.addEventListener('mouseleave', ()=>{
         cardFace.style.height = '100%'
       })      
       icon.addEventListener('click', () => {
         icon.classList.add('icon-click');
       });
       
-      resetButton.addEventListener('click',()=> resetVotesValue(animal))
+      resetButton.addEventListener('click',(e)=> {
+        e.preventDefault()
+        resetVotesValue(animal)
+      
+      })
       voteCounter(animal)
       return card
 }
@@ -78,6 +107,7 @@ function updateVotesValue(animal){
 }
 
 function resetVotesValue(animal){
+ 
   fetch(`http://localhost:3000/characters/${animal.id}`, {
   method: 'PATCH',
   headers: {
@@ -102,11 +132,29 @@ function resetVotesValue(animal){
 
 function voteCounter(animal){
   let animalid = animal.id;
-  console.log(animalid);
+  //console.log(animalid);
   let vote = document.getElementById(animalid)
-   console.log((vote));
+   //console.log((vote));
    vote.addEventListener('click', ()=> {
     updateVotesValue(animal)})
 }
+
+function addAPet(newPet){
+  fetch('http://localhost:3000/characters', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newPet)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Data added successfully:', data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
 
 fetchAnimalData();
