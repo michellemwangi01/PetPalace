@@ -1,5 +1,6 @@
+
+//eventListener that allows the form to capture and submit data when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
-  //const myForm = document.getElementById('addAPet')
   const submitPetBtn = document.getElementById('submit')
   console.log(submitPetBtn);
   submitPetBtn.addEventListener('click', (e)=>{
@@ -17,15 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     addAPet(newPet)
-
-
-
-    
-    console.log("I was submitted!");
+    console.log("submitted!");
   })
 });
 
+//function that uses FETCH to fetch the data from the JSON db and calls the create cards function to create a card for each object
+function fetchAnimalData(){
+  fetch("http://localhost:3000/characters")
+  .then((res)=> res.json())
+  .then(animals=> animals.forEach(animal => {
+    createCards(animal)
+  }));
+}
 
+//function that dynamically creates a card for each object on the JSON db
 function createCards(animal){
   const card = document.createElement('div')
   //console.log( document.querySelector('#cardContainer'));             
@@ -49,14 +55,10 @@ function createCards(animal){
             </div>
           </div>
                `
-
       let cardFace = document.getElementById(`faceElement-${animal.id}`);
       let resetButton = document.getElementById(`btnReset-${animal.id}`)
       let icon = document.getElementById(`icon-${animal.id}`);
       let deleteBtn = document.getElementById(`animalcard-${animal.id}`)
-
-
-      //console.log(cardFace);
 
       card.addEventListener('click', ()=>{
         cardFace.style.height = '15%';
@@ -68,9 +70,8 @@ function createCards(animal){
         icon.classList.add('icon-click');
       });
       deleteBtn.addEventListener('click', ()=>{
-        deleleAnimal(animal)
+        deletePet(animal)
       })
-      
       resetButton.addEventListener('click',(e)=> {
         e.preventDefault()
         resetVotesValue(animal)
@@ -80,14 +81,7 @@ function createCards(animal){
       return card
 }
 
-function fetchAnimalData(){
-  fetch("http://localhost:3000/characters")
-  .then((res)=> res.json())
-  .then(animals=> animals.forEach(animal => {
-    createCards(animal)
-  }));
-}
-
+//function that uses PATCH to update the value of the votes once the user clicks the like icon. It is called on the icon event listener
 function updateVotesValue(animal){
   fetch(`http://localhost:3000/characters/${animal.id}`, {
   method: 'PATCH',
@@ -113,6 +107,7 @@ function updateVotesValue(animal){
   
 }
 
+//function that resets votes to zero when the reset button is clicked. It is called on the resetBtn event listener
 function resetVotesValue(animal){
  
   fetch(`http://localhost:3000/characters/${animal.id}`, {
@@ -137,6 +132,7 @@ function resetVotesValue(animal){
   .then((data)=> console.log(data))  
 }
 
+//function that upates vote value using above function
 function voteCounter(animal){
   let animalid = animal.id;
   //console.log(animalid);
@@ -146,6 +142,7 @@ function voteCounter(animal){
     updateVotesValue(animal)})
 }
 
+//function that adds a pet to the JSON db from the user input in the form. Is called when the form submit button is clicked.
 function addAPet(newPet){
   fetch('http://localhost:3000/characters', {
     method: 'POST',
@@ -163,7 +160,8 @@ function addAPet(newPet){
     });
 }
 
-function deleleAnimal(animal){
+//function that deletes a pet when the delete button is clicked. Is called on the delete button
+function deletePet(animal){
   fetch(`http://localhost:3000/characters/${animal.id}`, {
     method: 'DELETE',
   })
@@ -179,4 +177,6 @@ function deleleAnimal(animal){
     });
 }
 
+
+//invokes fetchAnimalData function
 fetchAnimalData();
