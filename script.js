@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let petNameInput = document.getElementById('petNameInput').value
     let petVotesinput = document.getElementById('petVotesinput').value
     let imgURLInput = document.getElementById('imgURLInput').value
+    let petVotesinputNum = parseInt(petVotesinput);
 
     let newPet = {
       name: petNameInput,
       image: imgURLInput,
-      votes: petVotesinput
+      votes: petVotesinputNum
     }
 
     addAPet(newPet)
@@ -32,7 +33,7 @@ function createCards(animal){
                 card.innerHTML = `
                 <div class="container">          
             <div class="card ">
-              <div class="face face1  ">
+              <div class="face face1">
                 <div class="content">
                 <div class=cardHeader> 
                   <h2 id='${animal.id}' class="votes"><i id="icon-${animal.id}" class="fa fa-heart" style="font-size:40px;"></i> ${animal.votes}</h2>
@@ -41,8 +42,9 @@ function createCards(animal){
                   <img src="${animal.image}" class="cSharp"></img>
                 </div>
               </div>
-              <div class="face face2" id="faceElement-${animal.id}">
+              <div class="face face2 myFaceElement" id="faceElement-${animal.id}">
                 <h2 class='cardName'>${animal.name}</h2>
+                <button id="animalcard-${animal.id}" ><i class="fa fa-trash-o" style="font-size:30px;color:white"></i></button>
               </div>
             </div>
           </div>
@@ -50,12 +52,14 @@ function createCards(animal){
 
       let cardFace = document.getElementById(`faceElement-${animal.id}`);
       let resetButton = document.getElementById(`btnReset-${animal.id}`)
-      const icon = document.getElementById(`icon-${animal.id}`);
+      let icon = document.getElementById(`icon-${animal.id}`);
+      let deleteBtn = document.getElementById(`animalcard-${animal.id}`)
+
 
       //console.log(cardFace);
 
       card.addEventListener('click', ()=>{
-        cardFace.style.height = '13%';
+        cardFace.style.height = '15%';
       })  
       card.addEventListener('mouseleave', ()=>{
         cardFace.style.height = '100%'
@@ -63,6 +67,9 @@ function createCards(animal){
       icon.addEventListener('click', () => {
         icon.classList.add('icon-click');
       });
+      deleteBtn.addEventListener('click', ()=>{
+        deleleAnimal(animal)
+      })
       
       resetButton.addEventListener('click',(e)=> {
         e.preventDefault()
@@ -156,5 +163,20 @@ function addAPet(newPet){
     });
 }
 
+function deleleAnimal(animal){
+  fetch(`http://localhost:3000/characters/${animal.id}`, {
+    method: 'DELETE',
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Data deleted successfully');
+      } else {
+        throw new Error('Error deleting data');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
 
 fetchAnimalData();

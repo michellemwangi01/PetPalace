@@ -10,7 +10,7 @@
       "id": 2,
       "name": "Mx. Monkey",
       "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
-      "votes": 9
+      "votes": 11
     },
     {
       "id": 3,
@@ -31,12 +31,6 @@
       "votes": 3
     },
     {
-      "name": "Mx. Squirrel",
-      "image": "https://shorturl.at/foAMQ",
-      "votes": 2,
-      "id": 6
-    },
-    {
       "name": "Elephant",
       "image": "https://shorturl.at/lpFHS",
       "votes": 3,
@@ -45,14 +39,20 @@
     {
       "name": "Mr.Puppy",
       "image": "https://shorturl.at/agpR1",
-      "votes": "41",
+      "votes": 21,
       "id": 9
     },
     {
       "name": "Ms. Attitude",
       "image": "https://shorturl.at/CLSZ8",
-      "votes": "145",
+      "votes": 12,
       "id": 10
+    },
+    {
+      "name": "Sm. Squirrel",
+      "image": "https://shorturl.at/epvX0",
+      "votes": 7,
+      "id": 11
     }
   ]
 }

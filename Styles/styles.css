@@ -2,7 +2,7 @@
 #mainContainer{
     width: 80%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     flex-direction: column;
     justify-content: space-around;
     align-items: left;
@@ -20,6 +20,7 @@
     margin: 10px;
     padding: 40px 40px;
     justify-content: space-between;
+    align-items: left;
 }
 .votes{
     color: white;
@@ -58,6 +59,7 @@
   
   .icon-click {
     color: magenta;
+    transform: scale(1.5);
   }
 
   /* **********************form CSS****************** */
@@ -102,6 +104,7 @@ legend{
     color: white;
     font-size: 1.5rem;
 }
+/* ********************************end of form CSS************** */
 #heading{
     color: white;
     text-align: center;
@@ -109,4 +112,24 @@ legend{
 em{
     font-style: normal;
     color: magenta;
+}
+.myFaceElement button:nth-child(2){
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    position: absolute;
+    bottom:10px;
+    right:10px
+}
+.myFaceElement{
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    position: relative;
+}
+.cardHeader{
+    position: relative;
 }
