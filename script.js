@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function fetchAnimalData(){
   fetch("http://localhost:3000/characters")
   .then((res)=> res.json())
-  .then(animals=> animals.forEach(animal => {
+  .then(animals => animals.forEach(animal => {
     createCards(animal)
   }));
 }
@@ -176,7 +176,6 @@ function deletePet(animal){
       console.error('Error:', error);
     });
 }
-
 
 //invokes fetchAnimalData function
 fetchAnimalData();
