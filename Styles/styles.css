@@ -19,7 +19,7 @@
     flex-wrap: wrap;
     margin: 10px;
     padding: 40px 40px;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: left;
 }
 .votes{
