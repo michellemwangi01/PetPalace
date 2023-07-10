@@ -1,3 +1,6 @@
+const localDbJson = 'http://localhost:3000/characters/'
+const renderdbJson = `https://thepetpalace.onrender.com/characters/`
+
 
 //eventListener that allows the form to capture and submit data when the document is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //function that uses FETCH to fetch the data from the JSON db and calls the create cards function to create a card for each object
 function fetchAnimalData(){
-  fetch("http://localhost:3000/characters")
+  fetch(renderdbJson)
   .then((res)=> res.json())
   .then(animals => animals.forEach(animal => {
     createCards(animal)
@@ -83,7 +86,7 @@ function createCards(animal){
 
 //function that uses PATCH to update the value of the votes once the user clicks the like icon. It is called on the icon event listener
 function updateVotesValue(animal){
-  fetch(`http://localhost:3000/characters/${animal.id}`, {
+  fetch(`${renderdbJson}${animal.id}`, {
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json'
@@ -110,7 +113,7 @@ function updateVotesValue(animal){
 //function that resets votes to zero when the reset button is clicked. It is called on the resetBtn event listener
 function resetVotesValue(animal){
  
-  fetch(`http://localhost:3000/characters/${animal.id}`, {
+  fetch(`${renderdbJson}${animal.id}`, {
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json'
@@ -144,7 +147,7 @@ function voteCounter(animal){
 
 //function that adds a pet to the JSON db from the user input in the form. Is called when the form submit button is clicked.
 function addAPet(newPet){
-  fetch('http://localhost:3000/characters', {
+  fetch('renderdbJson', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -162,7 +165,7 @@ function addAPet(newPet){
 
 //function that deletes a pet when the delete button is clicked. Is called on the delete button
 function deletePet(animal){
-  fetch(`http://localhost:3000/characters/${animal.id}`, {
+  fetch(`renderdbJson${animal.id}`, {
     method: 'DELETE',
   })
     .then(response => {
