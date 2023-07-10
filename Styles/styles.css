@@ -134,3 +134,10 @@ em{
 .cardHeader{
     position: relative;
 }
+#copyrightContainer{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    align-self: center;
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
