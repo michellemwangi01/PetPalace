@@ -7,6 +7,8 @@
 
 Instagram for Pets:) An application where you can add and vote for the cutest pets.
 
+![image](https://github.com/michellemwangi01/PetPalace/assets/84324369/8f92295e-5ce1-47c6-9132-943821581423)
+
 ## Description
 
 This project is a web application that allows users to vote for their favorite animals. It displays a collection of animal cards, each containing the pet's name, image, vote count, and a button to increase the vote(like) count. Users can click on an animal's name to view additional details about the pet.
