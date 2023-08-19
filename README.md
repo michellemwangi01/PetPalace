@@ -1,6 +1,11 @@
 # Moringa-Phase1-Wk2-CodeChallenge
 ## THE PET PALACE
-An app where you can vote for the cutest pets
+
+![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
+Instagram for Pets:) An application where you can add and vote for the cutest pets.
 
 ## Description
 
